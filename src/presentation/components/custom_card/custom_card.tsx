@@ -5,9 +5,11 @@ import { Card, CardContent, Rating } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 function CustomCard({
   data,
+  selected = false,
   isDetailView = false,
 }: {
   data: IProductDataModel;
+  selected?: boolean;
   isDetailView?: boolean;
 }) {
   return (
@@ -22,7 +24,7 @@ function CustomCard({
             isDetailView
               ? styles.customCardDetailsContainer
               : styles.customCardContainer
-          }`}
+          } ${selected ? styles.selectedCard : ""}`}
         >
           <div className={styles.productImage}>
             {data?.image ? (
